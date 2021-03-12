@@ -3,9 +3,15 @@
 ## Jekyll 서버 실행
 TERMINAL 창에서 아래 명령어 입력 
 ```
+jekyll serve
+```
+![runJekyllServer1](https://user-images.githubusercontent.com/39661858/110881235-58181780-8323-11eb-9cb1-c3d561e68b2d.png)
+버전 에러가 발생한다면 bundle exec 작성해야 한다.
+
+```
 bundle exec jekyll serve
 ```
-![runJekyllServer](https://user-images.githubusercontent.com/39661858/110284110-a0ce8880-8024-11eb-9a5e-7d0e8b3645e4.png)
+![runJekyllServer2](https://user-images.githubusercontent.com/39661858/110284110-a0ce8880-8024-11eb-9a5e-7d0e8b3645e4.png)
 
 ## 실시간으로 서버 반영
 ```
