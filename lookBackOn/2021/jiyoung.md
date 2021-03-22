@@ -6,13 +6,13 @@
 **환경**
 1. struts, tiles 기반 -> egovframe convert + 신규화면
 2. [우리], [나무] 홈페이지 합치기
-3. 데이터 관리
+3. 소스 공유 TOOL : SVN 사용
+4. 데이터 관리
     - 관리자 - DB
     - 사용자 - 전문
 4. 개발 일정 
     - 20.10 - 20.12 관리자 (전메뉴)
     - 21.01 - 21.03 사용자 (온라인서비스)
-5. 소스 공유 TOOL : SVN 사용
 
 
 **구성원**
@@ -22,11 +22,9 @@
 
 
 **struts**
-- url 연결 순서 
-    - sturts -> action ~ action -> truts -> titles
+- url 연결 순서 :sturts -> action ~ action -> truts -> titles
 - sturts에서 action 메소드를 지정
-- action 메소드가 지정되지 않은 경우
-    - default 메소드명 => excute()
+- action 메소드가 지정되지 않은 경우 : default 메소드명 => excute()
 
 
 **본인 개발 범위**
