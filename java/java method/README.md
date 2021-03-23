@@ -2,6 +2,6 @@
 sort: 3
 ---
 
-# java metho
+# java method
 
 {% include list.liquid all=true %}
