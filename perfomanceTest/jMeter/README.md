@@ -2,6 +2,6 @@
 sort: 1
 ---
 
-# loadRunner
+# jMeter
 
 {% include list.liquid all=true %}
