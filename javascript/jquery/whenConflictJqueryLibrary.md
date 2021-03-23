@@ -1,4 +1,4 @@
-# Jquery
+# Jquery 라이브러리 충돌 시
 
 [JQuery] 다른 라이브러리로부터 jQuery 보호하기 
 
