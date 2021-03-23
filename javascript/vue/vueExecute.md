@@ -1,4 +1,4 @@
-# vue 실행
+# Vue 실행
 
 Node.js, vue, visual studio code 설치 
 
