@@ -111,3 +111,133 @@
    - [https://slobell.com/blogs/38](https://slobell.com/blogs/38)<br>
    - [https://www.lesstif.com/pages/viewpage.action?pageId=20775198](https://www.lesstif.com/pages/viewpage.action?pageId=20775198)<br>
    - [https://www.enteroa.com/2016/01/26/database-create-%EB%AC%B8%EC%97%90%EC%84%9C-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%85%8B-%EC%A7%80%EC%A0%95%ED%95%98%EC%97%AC-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0/](https://www.enteroa.com/2016/01/26/database-create-%EB%AC%B8%EC%97%90%EC%84%9C-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%85%8B-%EC%A7%80%EC%A0%95%ED%95%98%EC%97%AC-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0/) : DB생성 시 캐릭터셋<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<참고><br>
+1. 테이블명 대소문자 구분 시<br>
+   - 테이블이 있음에도 테이블명에 대해 대소문자를 구분하여, 테이블이 없다고 할 때가 존재
+   - 설정 확인 show variables like 'lower_case_table_names;' 값이 0일 경우 대소문자 구분, 1일 경우 구분 안함
+   - 0일 경우, my.cnf 파일 편집<br>
+     [mysqld] 영역 부분에 lower_case_table_names=1로 추가 또는 변경
+   - DB 재기동<br>
+
+
+2. hierarchical data Query
+   - [https://m.blog.naver.com/PostView.nhn?blogId=agapeuni&logNo=60174661589&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F](https://m.blog.naver.com/PostView.nhn?blogId=agapeuni&logNo=60174661589&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F)
+   - [http://www.gnujava.com/board/article_view.jsp?article_no=1853&menu_cd=29&idx_notice=NOTICE_FLAG+DESC%2C&board_no=16](http://www.gnujava.com/board/article_view.jsp?article_no=1853&menu_cd=29&idx_notice=NOTICE_FLAG+DESC%2C&board_no=16)
+   - pssql : [http://blog.duveen.me/14](http://blog.duveen.me/14), [http://blog.duveen.me/13](http://blog.duveen.me/13)
+   - plsql : [https://m.blog.naver.com/PostView.nhn?blogId=callsonda&logNo=220343710713&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F](https://m.blog.naver.com/PostView.nhn?blogId=callsonda&logNo=220343710713&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F)
+  <br>
+  
+
+3. Error log
+   - DB서버 기동 error : [http://idchowto.com/?p=11107](http://idchowto.com/?p=11107)
+
+
+4. 참고 자료
+   - [https://sqlangeles.com/2018/01/11/mysql-mariadb-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%8B%9C%EC%9E%91-%EC%A2%85%EB%A3%8C/](https://sqlangeles.com/2018/01/11/mysql-mariadb-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%8B%9C%EC%9E%91-%EC%A2%85%EB%A3%8C/)
+   - 로그 관리 : [http://linuxism.tistory.com/518](http://linuxism.tistory.com/518)
+
+<br>
+
+5. 암호화, 복호화 <br>
+    Mysql에서 제공하는 암호화, 복호화 <br>
+    삽입할 때에는 암호화된 데이터를 HEX로 변환시켜 넣고, 가져올 때는 HEX를 풀고 복호화한다. <br>
+ 
+  - 단방향(보통 패스워드) <br> 
+    INSERT INTO 테이블명 (필드명) VALUES (PASSWORD('암호화 할 내용')) <br>
+ 
+  - 쌍방향  <br>
+    INSERT INTO 테이블명 (필드명) VALUES (HEX(AES_ENCRYPT('문자열', '암호화 키'))); <br>
+ 
+  - 복호화  <br>
+    SELECT AES_DECRYPT(UNHEX(필드명), '암호화 키') FROM 테이블명; <br>
+    컬럼 타입이 varchar 일 경우 :  SELECT CAST(AES_DECRYPT(UNHEX(필드명), '암호화 키') AS CHAR) FROM 테이블명; <br>
+
+6. SQL 특수문자 자체를 검색하기 <br>
+   - [http://www.sqler.com/bColumn/493557](http://www.sqler.com/bColumn/493557) <br>
+
+ <br>
+ 
+7. 외부에서 접속이 안 된다면<br>
+   - 방화벽 체크<br>
+     firewall-cmd --permanent --zone=public --add-port=3306/tcp  // 설정 <br>
+     firewall-cmd --reload  // 설정 reload <br>
+     
+8. @@DATEFIRST(Transact-SQL) | Microsoft Docs <br>
+Clipped from: [https://docs.microsoft.com/ko-kr/sql/t-sql/functions/datefirst-transact-sql?view=sql-server-2017](https://docs.microsoft.com/ko-kr/sql/t-sql/functions/datefirst-transact-sql?view=sql-server-2017)<br>
+적용 대상: SQL Server(2008부터)<br>
+Azure SQL Database  <br>
+Azure SQL Data Warehouse  <br>
+병렬 데이터 웨어하우스 APPLIES TO:  <br>
+SQL Server (starting with 2008)  <br>
+Azure SQL Database  <br>
+Azure SQL Data Warehouse  <br>
+Parallel Data Warehouse  <br>
+이 함수는 특정 세션에 대해 SET DATEFIRST의 현재 값을 반환합니다.This function returns the current value of SET DATEFIRST, for a specific session. <br>
+
+모든 Transact-SQLTransact-SQL의 날짜 및 시간 데이터 형식 및 함수에 대한 개요는 날짜 및 시간 데이터 형식 및 함수(Transact-SQL)을 참조하세요.See Date and Time Data Types and Functions (Transact-SQL) for an overview of all Transact-SQLTransact-SQL date and time data types and functions. <br>
+<br>
+반환 형식Return Type <br>
+tinyinttinyint <br><br>
+
+RemarksRemarks <br>
+SET DATEFIRST n은 주에서 첫 번째 일을 지정합니다(일요일, 월요일, 화요일 등).SET DATEFIRST n specifies the first day (SUNDAY, MONDAY, TUESDAY, etc.) of the week. n 값의 범위는 1에서 7입니다.The value of n ranges from 1 to 7. <br><br>
+
+SQL  <br>
+SET DATEFIRST 3; <br>
+GO   <br>
+SELECT @@DATEFIRST; -- 3 (Wednesday) <br>
+GO <br><br>
+ 
+미국의 경우 영어 환경은 @@DATEFIRST 기본값을 7(일요일)로 설정합니다.For a U.S. English environment, @@DATEFIRST defaults to 7 (Sunday). <br>
+
+이 언어 설정은 SQL Server가 해당 문자열을 데이터베이스 저장소에 대한 날짜 값으로 변환하므로 문자열 해석에 영향을 줍니다.This language setting impacts character string interpretation as SQL Server converts those strings to date values for database storage. 이 설정은 데이터베이스에 저장된 날짜 값의 표시에도 영향을 줍니다.This setting also impacts display of date values stored in the database. 이 설정은 날짜 데이터의 저장소 형식에는 영향을 주지 않습니다.This setting does not impact the storage format of date data. <br>
+
+이 예제에서는 먼저 언어를 Italian로 설정합니다.This example first sets the language to Italian. SELECT @@DATEFIRST; 문은 1을 반환합니다.The statement SELECT @@DATEFIRST; returns 1. 다음 명령문은 언어를 us_english로 설정합니다.The next statement sets the language to is then set to us_english. 마지막 명령문 SELECT @@DATEFIRST;는 7을 반환합니다.The final statement, SELECT @@DATEFIRST; returns 7. <br><br>
+
+SQL  <br>
+SET LANGUAGE Italian;   <br>
+GO   <br>
+SELECT @@DATEFIRST;   <br>
+GO   <br>
+SET LANGUAGE us_english;   <br>
+GO   <br>
+SELECT @@DATEFIRST;   <br><br>
+ 
+예Examples <br>
+
+이 예에서는 주의 시작 요일을 5(금요일)로 설정하고 현재 날짜인 Today를 토요일로 가정합니다.This example sets the first day of the week to 5 (Friday), and assumes that the current day, Today, falls on Saturday. SELECT 문은 주의 현재 날짜의 DATEFIRST 값과 현재 날짜 번호를 반환합니다.The SELECT statement returns the DATEFIRST value and the number of the current day of the week. <br><br>
+
+SQL  <br>
+
+SET DATEFIRST 5;   <br>
+SELECT @@DATEFIRST AS 'First Day'   <br>
+    ,DATEPART(dw, SYSDATETIME()) AS 'Today';   <br>
+ 
+
+결과 집합은 다음과 같습니다.Here is the result set.  <br><br>
+
+SQL  <br>
+
+First Day         Today   <br>
+----------------  --------------   <br>
+5                 2   <br><br>
+ 
+
+예제Example <br>
+
+Azure SQL 데이터 웨어하우스Azure SQL Data Warehouse 및 병렬 데이터 웨어하우스Parallel Data Warehouse and 병렬 데이터 웨어하우스Parallel Data Warehouse  <br><br>
+
+SQL  <br>
+
+SELECT @@DATEFIRST;   <br><br>
+ 
+
+관련 항목:See also <br>
+
+구성 함수(Transact-SQL)Configuration Functions (Transact-SQL) 
