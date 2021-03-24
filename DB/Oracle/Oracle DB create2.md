@@ -38,4 +38,18 @@ name="dbY2GS" <br><br>
 ![oracle-9](https://user-images.githubusercontent.com/39476251/112247584-e5e6f180-8c97-11eb-9008-ec7d4d75cbec.JPG)<br><br>
 
 9. 샘플 스키마, 혹은 생성 후 실행 할 스크립트를 정의. <br>
-![oracle-8](https://user-images.githubusercontent.com/39476251/112247639-0020cf80-8c98-11eb-896a-37b79d16951b.JPG)
+![oracle-8](https://user-images.githubusercontent.com/39476251/112247639-0020cf80-8c98-11eb-896a-37b79d16951b.JPG)<br><br>
+
+10. 초기화 매개변수를 설정한다. <br>
+캐릭터셋은 UTF-8로 설정 해 준다.; ( AL32UTF8 ) <br>
+DB를 EUC-KR로 설계 할 경우에는 그에 따라 변경이 불필요하다. ( 여러 언어 지원을 위해, UTF-8을 대개 사용 ) <br>
+![oracle-10](https://user-images.githubusercontent.com/39476251/112247734-2ba3ba00-8c98-11eb-91e7-76c381b8b2d9.JPG)<br><br>
+
+11. 데이터베이스 저장 영역 설정. 기본 설정으로 셋팅. <br>
+![oracle-11](https://user-images.githubusercontent.com/39476251/112247826-4e35d300-8c98-11eb-8edb-82943be92ac5.JPG)<br><br>
+
+12. 생성옵션. 스크립트 등이 있을 경우 선택. 이후 완료. <br>
+![oracle-12](https://user-images.githubusercontent.com/39476251/112247912-6a397480-8c98-11eb-9fce-420b115bc652.JPG)<br>
+확인 시, 지금까지의 설정 정보를 표시하는 팝업창이 표출되고, <br>
+해당 팝업창에서 '확인' 클릭 시 DB생성. <br>
+![oracle-13](https://user-images.githubusercontent.com/39476251/112247980-86d5ac80-8c98-11eb-858b-40f939e4ad4f.JPG)
