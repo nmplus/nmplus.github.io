@@ -123,7 +123,7 @@
    - 설정 확인 show variables like 'lower_case_table_names;' 값이 0일 경우 대소문자 구분, 1일 경우 구분 안함
    - 0일 경우, my.cnf 파일 편집<br>
      [mysqld] 영역 부분에 lower_case_table_names=1로 추가 또는 변경
-   - DB 재기동<br>
+   - DB 재기동<br><br>
 
 
 2. hierarchical data Query
@@ -148,20 +148,20 @@
     Mysql에서 제공하는 암호화, 복호화 <br>
     삽입할 때에는 암호화된 데이터를 HEX로 변환시켜 넣고, 가져올 때는 HEX를 풀고 복호화한다. <br>
  
-  - 단방향(보통 패스워드) <br> 
-    INSERT INTO 테이블명 (필드명) VALUES (PASSWORD('암호화 할 내용')) <br>
+   - 단방향(보통 패스워드) <br> 
+     INSERT INTO 테이블명 (필드명) VALUES (PASSWORD('암호화 할 내용')) <br>
  
-  - 쌍방향  <br>
-    INSERT INTO 테이블명 (필드명) VALUES (HEX(AES_ENCRYPT('문자열', '암호화 키'))); <br>
+   - 쌍방향  <br>
+     INSERT INTO 테이블명 (필드명) VALUES (HEX(AES_ENCRYPT('문자열', '암호화 키'))); <br>
  
-  - 복호화  <br>
-    SELECT AES_DECRYPT(UNHEX(필드명), '암호화 키') FROM 테이블명; <br>
-    컬럼 타입이 varchar 일 경우 :  SELECT CAST(AES_DECRYPT(UNHEX(필드명), '암호화 키') AS CHAR) FROM 테이블명; <br>
+   - 복호화  <br>
+     SELECT AES_DECRYPT(UNHEX(필드명), '암호화 키') FROM 테이블명; <br>
+     컬럼 타입이 varchar 일 경우 :  SELECT CAST(AES_DECRYPT(UNHEX(필드명), '암호화 키') AS CHAR) FROM 테이블명; <br>
 
 6. SQL 특수문자 자체를 검색하기 <br>
    - [http://www.sqler.com/bColumn/493557](http://www.sqler.com/bColumn/493557) <br>
 
- <br>
+ <br><br>
  
 7. 외부에서 접속이 안 된다면<br>
    - 방화벽 체크<br>
