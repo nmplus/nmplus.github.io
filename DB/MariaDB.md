@@ -12,16 +12,15 @@
 10. 권한 적용
 11. 캐릭터셋 설정
 
-※ 접근이 안 되서 netstat -anp | grep 3306으로 확인 해 보니 
-tcp가 아니라 tcp6… tcp6는 IPv6란 거. 
-변경하는 법은 /etc/my.cnf.d/server.cnf 안의 bind-address=0.0.0.0 의 주석을 풀고,  서버 재기동 
+※ 접근이 안 되서 netstat -anp | grep 3306으로 확인 해 보니 tcp가 아니라 tcp6… tcp6는 IPv6란 거. <br>
+변경하는 법은 /etc/my.cnf.d/server.cnf 안의 bind-address=0.0.0.0 의 주석을 풀고,  서버 재기동 <br>
 --> 이 때의 mariaDB 버전은 10.1 
 
 
-1. 운영체제 확인
+1. 운영체제 확인<br>
 - OS의 버전을 확인한다. cat /etc/*release* 
 
-2. repository 설정
+2. repository 설정<br>
  ※ Repository를 삭제하기 원할 경우. 설정 파일만 삭제하면 된다. rm -f /etc/yum.repos.d/MariaDB.repo 
  - [Ruby](http://mariadb.org/) 웹페이지 방문
  - 패키지 다운로드가 아닌, yum repository 정보 페이지로 이동. 
