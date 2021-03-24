@@ -1,8 +1,7 @@
 ---
-sort: 1
+sort: 2
 --- 
 
-# 2021년도
-
+# 흥국생명 대외계 재구축
 
 {% include list.liquid all=true %}
