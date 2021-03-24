@@ -21,12 +21,12 @@
 
 
 1. 운영체제 확인<br>
-  - OS의 버전을 확인한다. cat /etc/*release* <br>
+   - OS의 버전을 확인한다. cat /etc/*release* <br>
 
 
 2. repository 설정<br>
  ※ Repository를 삭제하기 원할 경우. 설정 파일만 삭제하면 된다. rm -f /etc/yum.repos.d/MariaDB.repo <br>
-   - [Ruby](http://mariadb.org/) 웹페이지 방문<br>
+   - [http://mariadb.org/](http://mariadb.org/) 웹페이지 방문<br>
    - 패키지 다운로드가 아닌, yum repository 정보 페이지로 이동. <br>
      Download(a) > repository(b) > 이후 운영체제, OS버젼, 설치하기 원하는 버전 선택(c) 시 하단에 repository  설정 내용이 보여진다<br>
      ![download](https://user-images.githubusercontent.com/39476251/112238473-14f56700-8c88-11eb-9694-77218b47acf1.JPG)
@@ -106,8 +106,8 @@
 
 
 11. 캐릭터셋 설정<br>
-   - [Ruby](http://roqkffhwk.tistory.com/133<br>
-   - [Ruby](https://www.lesstif.com/pages/viewpage.action?pageId=20775198 )<br>
-   - [Ruby](https://slobell.com/blogs/38)<br>
-   - [Ruby](https://www.lesstif.com/pages/viewpage.action?pageId=20775198 )<br>
-   - [Ruby](https://www.enteroa.com/2016/01/26/database-create-%EB%AC%B8%EC%97%90%EC%84%9C-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%85%8B-%EC%A7%80%EC%A0%95%ED%95%98%EC%97%AC-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0/) : DB생성 시 캐릭터셋<br>
+   - [http://roqkffhwk.tistory.com/133](http://roqkffhwk.tistory.com/133)<br>
+   - [https://www.lesstif.com/pages/viewpage.action?pageId=20775198](https://www.lesstif.com/pages/viewpage.action?pageId=20775198)<br>
+   - [https://slobell.com/blogs/38](https://slobell.com/blogs/38)<br>
+   - [https://www.lesstif.com/pages/viewpage.action?pageId=20775198](https://www.lesstif.com/pages/viewpage.action?pageId=20775198)<br>
+   - [https://www.enteroa.com/2016/01/26/database-create-%EB%AC%B8%EC%97%90%EC%84%9C-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%85%8B-%EC%A7%80%EC%A0%95%ED%95%98%EC%97%AC-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0/](https://www.enteroa.com/2016/01/26/database-create-%EB%AC%B8%EC%97%90%EC%84%9C-%EC%BA%90%EB%A6%AD%ED%84%B0%EC%85%8B-%EC%A7%80%EC%A0%95%ED%95%98%EC%97%AC-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0/) : DB생성 시 캐릭터셋<br>
