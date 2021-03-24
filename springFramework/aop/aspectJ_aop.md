@@ -1,18 +1,21 @@
 # AspectJ - aop
 
 ## Aspect-Oriented Programming in Java
+
 본 글은 Markus Voelter에 의해 작성된 글 중 일부이다. 원문은 AOP 기본 개념, Xerox  
 
 PARC에 의해 구현된 Java의 AOP 확장 버전인 AspectJ 소개, Metaclass 프로그래밍과의 비교 등 총 3 파트로 구성되어 있으며, 번역문은 이 중 첫 번째 파트만 커버한다. 참고로 원문의 AspectJ 관련 코드는 상당히 오래된 문법에 기반하여 현재의 그것과 많은 차이를 보인다 
 
 ## Introduction 
+
 최근 몇 년에 걸쳐 객체지향 프로그래밍(Object-Oriented Programming, OOP)은 절차적 방법론을 거의 완벽히 대체하며 프로그래밍 방법론의 새 주류로 떠오르게 되었다. 객체지향적 방식의 가장 큰 이점 중 하나는 소프트웨어 시스템이 여러 개의 독립된 클래스들의 집합으로 구성된다는 것이다. 이들 각각의 클래스들은 잘 정의된 고유 작업을 수행하게 되고, 그 역할 또한 명백히 정의되어 있다. 객체지향 어플리케이션에서는 어플리케이션이 목표한 동작을 수행하기 위해 이런 클래스들이 서로 유기적으로 협력하게 된다. 하지만 시스템의 어떤 기능들은 특정 한 클래스가 도맡아 처리할 수 없다. 이들은 시스템 전체를 들쑤시며 해당 코드들을 여러 클래스들에 흩뿌려 놓는다. 이런 현상을 횡단적(cross-cutting)이라 표현한다. 분산 어플리케이션에서의 락킹(locking, 동기화) 문제, 예외 처리, 로깅 등이 그 예이다. 물론 필요한 모든 클래스들에 관련 코드를 집어 넣으면 해결될 문제이다. 하지만 이런 행위는 각각의 클래스는 잘 정의된(well-defined) 역할만을 수행한다 
 
 는 기본 원칙에 위배된다. 이런 상황이 바로 Aspect-Oriented Programming (AOP)이 잉태된 원인이 되었다.  
 
 AOP에서는 aspect라는 새로운 프로그램 구조를 정의해 사용한다. 이는 쉽게 struct, class, interface 등과 같이 특정한 용도의 구조라 생각하면 된다. Aspect 내에는 프로그램의 여러 모듈들에 흩어져 있는 기능(하나의 기능이 여러 모듈에 흩어져 있음을 뜻한다)을 모아 정의하게 된다. 전체적으로, 어플리케이션의 각각의 클래스는 자신에게 주어진 기능만을 수행하고, 추가된 각 aspect들이 횡단적인 행위(기능)들을 모아 처리하며 전체 프로그램을 이루는 형태가 만들어진다. 
 
- ## AOP Basics
+ ## AOP Basics  
+
  이해를 돕기 위해, 그리고 설명을 쉽게 하기 위해 예를 들어가며 AOP 개념을 설명토록 하겠다. 어플리케이션의 여러 스레드들이 하나의 데이터를 공유하는 상황을 가정해보자. 공유 데이터는 Data라는 객체(Data 클래스의 인스턴스)로 캡슐화되어 있다. 서로 다른 여러 클래스의 인스턴스들이 하나의 Data 객체를 사용하고 있으나 이 공유 데이터에 접근할 수 있는 객체는 한 번에 하나씩이어야만 한다. 그렇다면 어떤 형태이건 동기화 메커니즘이 도입되어야 할 것이다. 즉, 어떤 한 객체가 데이터를 사용중이라면 Data 객체는 잠겨(lock)져야 하며, 사용이 끝났을 때 해제(unlock)되어야 한다. 전통적인 해결책은 공유 데이터를 사용하는 모든 클래스들이 하나의 공통 부모 클래스("worker" 라 부르도록 하자)로부터 파생되는 형태이다. worker 클래스에는 lock()과 unlock() 메소드를 정의하여 작업의 시작과 끝에 이 메소드를 호출토록 하면 된다. 하지만 이런 형태는 다음과 문제들을 파생시킨다. 
 
  - 공유 데이터를 사용하는 메소드는 상당히 주의해서 작성되어야 한다. 동기화 코드를 잘못 삽입하면 데드락(dead-lock)이 발생하거나 데이터 영속성이 깨질 수 있다. 또한 메소드 내부는 본래의 기능과 관련 없는 동기화 관련 코드들로 더럽혀질 것이다. 
@@ -46,7 +49,8 @@ AOP에서는 이런 형태의 문제를 해결하기 위해 새로운 형태의 
 
 또 다른 예로 예외 처리가 있다. Aspect를 이용해 여러 클래스들의 산재된 메소드들에 영향을 주는 catch() 조항(clause)을 정의해 어플리케이션 전체에 걸친 지속적이고 일관적으로 예외를 처리할 수 있다. 
 
- ### 6.1.1. AOP 개념 
+#### 6.1.1. AOP 개념  
+
 몇몇 중심적인 AOP개념을 명시함으로써 시작해보자. 이 개념들은 Spring에 종속적인 개념이 아니다. 운 나쁘게도 AOP전문용어는 특히 직관적이지 않다. 어쨌든 Spring이 그 자신의 전문용어를 사용했다면 좀더 혼란스러울것이다. 
 
 - Aspect: 다중 객체에 영향을 주는 concern의 모듈화. 트랜잭션 관리는 J2EE애플리케이션의 crosscutting concern의 좋은 예제이다. Spring AOP에서, aspect는 정규 클래스나 @Aspect 어노테이션(@Aspect 스타일)으로 주석처리된 정규 클래스를 사용하여 구현된다. 
@@ -67,6 +71,7 @@ AOP에서는 이런 형태의 문제를 해결하기 위해 새로운 형태의 
 
 
 #### Advice 타입
+
 - Before advice: joinpoint전에 수행되는 advice. 하지만 joinpoint를 위한 수행 흐름 처리(execution flow proceeding)를 막기위한 능력(만약 예외를 던지지 않는다면)을 가지지는 않는다. 
 - After returning advice: joinpoint이 일반적으로 예를 들어 메소드가 예외를 던지는것없이 반환된다면 완성된 후에 수행되는 advice
 - After throwing advice: 메소드가 예외를 던져서 빠져나갈때 수행되는 advice 
@@ -87,7 +92,8 @@ pointcut에 의해 일치하는 join point의 개념은 오직 인터셉션만�
 
 그럼 우선 포인트 컷을 정의하는 방법부터 보자.
 
-### 포인트컷(Pointcut) 정의하기 
+#### 포인트컷(Pointcut) 정의하기 
+
 포인트컷은 결합점(Join points)을 지정하여 충고(Advice)가 언제 실행될지를 지정하는데 사용된다. Spring AOP는 Spring 빈에 대한 메소드 실행 결합점만을 지원하므로, Spring에서 포인트컷은 빈의 메소드 실행점을 지정하는 것으로 생각할 수 있다. 
 
 다음 예제는 egovframework.rte.fdl.aop.sample 패키지 하위의 Sample 명으로 끝나는 클래스의 모든 메소드 수행과 일치할 'targetMethod' 라는 이름의 pointcut을 정의한다. 
@@ -111,6 +117,7 @@ public class AspectUsingAnnotation {
 } 
 
 #### 포인트컷 지정자(Designators) 
+
 Spring에서 포인트컷 표현식에 사용될 수 있는 지정자는 다음과 같다. 포인트컷은 모두 public 메소드를 대상으로 한다. 
 - execution: 메소드 실행 결합점(join points)과 일치시키는데 사용된다. 
 - within: 특정 타입에 속하는 결합점을 정의한다. 
@@ -123,6 +130,7 @@ Spring에서 포인트컷 표현식에 사용될 수 있는 지정자는 다음�
 - @annotation: 결합점의 대상 객체가 주어진 어노테이션을 갖는 결합점을 정의한다. 
 
 #### 포인트컷 표현식 조합하기 
+
 포인트컷 표현식은 '&&', '||' 그리고 '!' 를 사용하여 조합할 수 있다. 
 
   @Pointcut("execution(public * *(..))") 
@@ -142,6 +150,7 @@ Spring에서 포인트컷 표현식에 사용될 수 있는 지정자는 다음�
    private void tradingOperation() {} 
 
 #### 포인트컷 정의 예제
+
 Spring AOP에서 자주 사용되는 포인트컷 표현식의 예를 살펴본다. 
 
 Pointcut | 선택된 Joinpoints 
@@ -168,12 +177,7 @@ bean(*) |모든 빈
 bean(account*) |이름이 'account'로 시작되는 모든 빈 
 bean(*Repository) |이름이 “Repository”로 끝나는 모든 빈 
 bean(accounting/*) |이름이 “accounting/“로 시작하는 모든 빈 
-bean(*dataSource) || bean(*DataSource) |이름이 “dataSource” 나 “DataSource” 으로 끝나는 모든 빈 
-
-
-  
-
-콘솔 로그 출력을 보면 충고(Advice)가 적용되는 순서는 다음과 같다. 
+bean(*dataSource) || bean(*DataSource) |이름이 “dataSource” 나 “DataSource” 으로 끝나는 모든 빈 콘솔 로그 출력을 보면 충고(Advice)가 적용되는 순서는 다음과 같다. 
 
 - @Before 
 - @Around (대상 메소드 수행 전) 
@@ -182,4 +186,5 @@ bean(*dataSource) || bean(*DataSource) |이름이 “dataSource” 나 “DataSo
 - @After(finally) 
 - @AfterReturning 
 
- 
+예제는 class에 annotation을 이용한 logging 전략과, 
+execution을 이용한 logging 전략을 이용한다.
