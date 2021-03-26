@@ -19,16 +19,19 @@
   
 4. plugin 파일을 jenkins 폴더 하위로 이동시킨다.  
     mv <폴더명> <이동될 폴더명>  
-    mv plugins /usr/local/tomcat/webapps/jenkins  <사용자계정폴더>/.jenkins   
+    mv plugins ~~/usr/local/tomcat/webapps/jenkins~~  <사용자계정폴더>/.jenkins   
     --> NO!!!!!  
     plugin 등은 <사용자계정폴더>/.jenkins 하위에 복사해야 한다.  
     비밀번호 확인도 해당 위치에 있다.   
   
 5. tomcat에 젠킨스를 설정해 준다.  
-   vi /usr/local/tomcat/conf/server.xml  
-   <Host name="localhost"  appBase="/usr/local/tomcat/webapps/jenkins" unpackWARs="true" autoDeploy="true">   
-   <Context path="/jenkins" docBase="." reloadable="true"/>   
-   </Host>
+```
+vi /usr/local/tomcat/conf/server.xml 
+
+<Host name="localhost"  appBase="/usr/local/tomcat/webapps/jenkins" unpackWARs="true" autoDeploy="true">   
+    <Context path="/jenkins" docBase="." reloadable="true"/>   
+</Host>  
+```` 
   
 6. 접속  
    ip:port/jenkins 
