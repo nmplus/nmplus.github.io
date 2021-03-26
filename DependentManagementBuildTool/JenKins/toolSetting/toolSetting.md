@@ -31,7 +31,7 @@ export MAVEN_HOME=/usr/local/maven
 
 export PATH=$PATH:$MAVEN_HOME/bin 
 ```  
-
+  
 10. 재로그인하여, 환경설정이 제대로 되었는지, 제대로 동작하는지 확인한다.  
 $ mvn -version  
 11. maven local repository를 설정해 준다.  
