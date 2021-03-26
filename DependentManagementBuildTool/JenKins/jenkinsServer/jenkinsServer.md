@@ -25,13 +25,13 @@
     비밀번호 확인도 해당 위치에 있다.   
   
 5. tomcat에 젠킨스를 설정해 준다.  
-```
+````  
 vi /usr/local/tomcat/conf/server.xml 
 
 <Host name="localhost"  appBase="/usr/local/tomcat/webapps/jenkins" unpackWARs="true" autoDeploy="true">   
     <Context path="/jenkins" docBase="." reloadable="true"/>   
 </Host>  
-```` 
+````  
   
 6. 접속  
    ip:port/jenkins 
