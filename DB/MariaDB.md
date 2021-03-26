@@ -1,4 +1,4 @@
-# 설치
+# MARIA DB
 
 1. 운영체제 확인
 2. repository 설정
