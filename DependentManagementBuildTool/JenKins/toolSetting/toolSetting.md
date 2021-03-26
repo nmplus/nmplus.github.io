@@ -25,11 +25,13 @@ maven.sh 라는 파일명은 임의의 파일명으로 별도의 인식가능한
 이렇게 생성하면, Global로 설정된다.  
 참고 : yum으로 설치할 경우, /etc/profile 에 자동으로 추가한다.  
 9. maven.sh 파일 내부에 내용을 작성한다.  
-```` 
+
+```   
 export MAVEN_HOME=/usr/local/maven 
 
 export PATH=$PATH:$MAVEN_HOME/bin 
-````  
+```  
+
 10. 재로그인하여, 환경설정이 제대로 되었는지, 제대로 동작하는지 확인한다.  
 $ mvn -version  
 11. maven local repository를 설정해 준다.  
