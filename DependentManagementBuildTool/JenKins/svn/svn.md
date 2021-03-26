@@ -22,7 +22,7 @@
    build 후 조치에서 deploy to container 선택 ( deploy to container plugin 미설치 시 해당 선택 미표시 )  
    tomcat에 대한 credential은   
    tomcat-user.xml 에 추가 한 이후, 이를 이용하면 된다.  
-   예)
+   예)  
 ````   
   <role rolename="tomcat"/>  
 
