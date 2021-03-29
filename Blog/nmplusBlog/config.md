@@ -1,6 +1,6 @@
 # Jekyll 환경설정
 
-_config.yml 파일에서 Jekyll 환경설정을 작성할 수 있다.<br/>
+_config.yml 파일에서 Jekyll 환경설정을 작성할 수 있다.  
 환경설정 파일인 _config.yml은 사이트가 빌드 될 때 최초 한 번만 읽기 때문에 수정했다면 서버 종료 후 다시 실행해야 적용된다.
 ![config](https://user-images.githubusercontent.com/39661858/110873171-82aea400-8314-11eb-91e9-12ab6fb932b4.png)
 
