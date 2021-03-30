@@ -16,6 +16,6 @@ sudo chkconfig docker on
 
 설치 후 docker version 명령어로 정상적으로 설치되었는지 확인 할수있다.
 
-![설치](./os/Docker/installOnLinux/1.PNG)
+![설치](https://github.com/nmplus/nmplus.github.io/blob/main/os/Docker/installOnLinux/1.PNG)
 
-![버전확인](./os/Docker/installOnLinux/2.PNG)
+![버전확인](https://github.com/nmplus/nmplus.github.io/blob/main/os/Docker/installOnLinux/2.PNG)
