@@ -2,6 +2,6 @@
 sort: 4
 ---
 
-# Docker 설치
+# Docker
 
 {% include list.liquid all=true %}
