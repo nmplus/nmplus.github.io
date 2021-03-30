@@ -1,11 +1,7 @@
-# CentOS 8에 Docker 설치하기 (2021.03.30)
+# CentOS8에 Docker 설치하기 (2021.03.30)
 
+설치는 명령어 한줄로 간단하게 설치가 끝난다.
 
-설치는 user 권한에서 수행하는 가이드입니다.  
-
-기본적으로 docker가 root 권한을 요구하기때문에 해당 user를 docker 그룹에 추가합니다.
-
-group 추가
  ```
 #Install
 sudo yum install docker
@@ -18,3 +14,8 @@ sudo chkconfig docker on
   
  ```
 
+설치 후 docker version 명령어로 정상적으로 설치되었는지 확인 할수있다.
+
+![설치](./1.PNG)
+
+![버전확인](./2.PNG)
