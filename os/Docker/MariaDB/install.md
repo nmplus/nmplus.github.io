@@ -1,6 +1,6 @@
 ## Docker를 사용한 MariaDB 설치
 
-##### Docker가 설치 되었다면 아래 0~7 단계별 MariaDB 설치 부터 Tool로 접속 test 진행
+Docker가 설치 되었다면 아래 0~7 단계별 MariaDB 설치 부터 Tool로 접속 test 진행
 
 0. MariaDB image를 내려받는다.
 - 버전을 작성하지않으면 latest 버전을 받게됩니다.
@@ -24,18 +24,18 @@
 - -e 속성 : container에서 사용될 환경변수로 mariadb root 패스워드를 test로 설정함
 - -v 속성 : Volume속성으로 host경로의 my.cnf파일 container의 파일과 마운트하여 설정파일을 재사용함
     - /var/lib/mysql경로를 mount하게되면 mysql데이터를 host에서 관리하게 되어 db백업이가능함.( mariaDB를 재설치 하여도 데이터는 그대로 보관됨)
-    - ##### 근데 docker에서 두개파일 volume지정을 어떻게 하는거지??
+    - 근데 docker에서 두개파일 volume지정을 어떻게 하는거지??
 
 - my.cnf파일 추가
   - 초기 characterset이 latin1로 되어있으며 utf8변경 해준다.  
   ```
-  [client]
+  \[client\]
   default-character-set = utf8mb4
 
-  [mysql]
+  \[mysql\]
   default-character-set = utf8mb4
 
-  [mysqld]
+  \[mysqld\]
   character-set-client-handshake = FALSE
   character-set-server = utf8mb4
   collation-server = utf8mb4_unicode_ci
