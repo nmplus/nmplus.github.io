@@ -1,8 +1,8 @@
 ---
-sort: 1
+sort: 2
 ---
 
-# CentOS8에 Docker설치하기
+# MariaDB 설치
 
 
 {% include list.liquid all=true %}
