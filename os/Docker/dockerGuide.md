@@ -1,7 +1,7 @@
 # Docker 가이드
 
 
-#### docker 자주 쓰는 실행 명령어
+##### docker 자주 쓰는 실행 명령어
 ````
 
 docker run [options] IMAGE [COMMAND [ARG...]]
@@ -17,7 +17,7 @@ OPTIONS	   내용설명
 –name	   Container 이름설정(미 지정시 docker가 랜덤 생성)
 ````
 
-#### 기본 사용 명령어
+##### 기본 사용 명령어
 ````
 - Container 중지 (공백으로 구분해서 한번에 여러 Container중지가능)  
     docker stop [name 또는 Container id]  

@@ -14,11 +14,11 @@ sudo chkconfig docker on
 
 - 설치는 명령어 한줄로 간단하게 설치가 끝난다.    
 
-![설치](https://raw.githubusercontent.com/nmplus/nmplus.github.io/main/os/Docker/installOnLinux/1.PNG)  
+![설치](https://raw.githubusercontent.com/nmplus/nmplus.github.io/main/os/Docker/dockerInstall/1.PNG)  
 
 -  설치 후 docker version 명령어로 정상적으로 설치되었는지 확인 할수있다.    
 
-![버전확인](https://raw.githubusercontent.com/nmplus/nmplus.github.io/main/os/Docker/installOnLinux/2.PNG)  
+![버전확인](https://raw.githubusercontent.com/nmplus/nmplus.github.io/main/os/Docker/dockerInstall/2.PNG)  
 
 #### user계정에서 sudo 명령어(root권한)를 사용시 아래와 같이 추가해야됨.  
 

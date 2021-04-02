@@ -27,8 +27,7 @@
     - ##### 근데 docker에서 두개파일 volume지정을 어떻게 하는거지??
 
 - my.cnf파일 추가
-  - 초기 characterset이 latin1로 되어있으며 utf8변경 해준다.
-  - 
+  - 초기 characterset이 latin1로 되어있으며 utf8변경 해준다.  
   ```
   [client]
   default-character-set = utf8mb4
@@ -40,7 +39,8 @@
   character-set-client-handshake = FALSE
   character-set-server = utf8mb4
   collation-server = utf8mb4_unicode_ci
-  ```
+  ```  
+
 2. docker 프로세서 확인
 - MariaDB가 제대로 설치 되었는지 상태값 등 확인
   ```
