@@ -28,18 +28,23 @@ Docker가 설치 되었다면 아래 0~7 단계별 MariaDB 설치 부터 Tool로
 
 - my.cnf파일 추가
   - 초기 characterset이 latin1로 되어있으며 utf8변경 해준다.  
+
   ```
-  \[client\]
+  "["client"]"
   default-character-set = utf8mb4
 
-  \[mysql\]
+  "["mysql"]"
   default-character-set = utf8mb4
 
-  \[mysqld\]
+  "["mysqld"]"
+  #
   character-set-client-handshake = FALSE
+  #
   character-set-server = utf8mb4
+  #
   collation-server = utf8mb4_unicode_ci
-  ```  
+ 
+  ```
 
 2. docker 프로세서 확인
 - MariaDB가 제대로 설치 되었는지 상태값 등 확인
