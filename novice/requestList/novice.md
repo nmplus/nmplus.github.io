@@ -15,7 +15,7 @@
 ### 직급 참조
 - 대표 : CEO
 - 본부장 : Director
-- 수석 : 
+- 수석 : Principal Manager
 - 책임 : Senior Manager
 - 주임 : Junior Manager
 - 사원 : Employee
