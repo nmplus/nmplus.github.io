@@ -3,7 +3,10 @@
  ```
 #Install
 sudo yum install docker
- 
+
+#version 확인
+docker version
+
 #Docker 서비스 실행
 sudo service docker start
  
