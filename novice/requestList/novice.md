@@ -5,6 +5,26 @@
 ## 메일 계정 생성 신청
 
 ## 명함 신청
+- 이름(한글, 영문)
+- 직급(한글, 영문)
+- 소속(한글, 영문)
+- 연락처
+- 1층 드림디포에 기본틀 참조를 위해 다른 사람 명함과 함께 신청
+- 대략 2일 소요
+
+### 직급 참조
+- 대표 : CEO
+- 본부장 : Director
+- 수석 : Principal Manager
+- 책임 : Senior Manager
+- 주임 : Junior Manager
+- 사원 : Employee
+
+### 소속 참조
+- SI 사업부 : SI Dept.
+- 전략 사업부 : Strategy Dept.
+
+	변경을 원한다면 말씀주세요.( to. 서범석 본부장 )
 
 ## FTP 계정 신청
 
