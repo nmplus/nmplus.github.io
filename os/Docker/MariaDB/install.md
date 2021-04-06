@@ -27,22 +27,23 @@ Docker가 설치 되었다면 아래 0~7 단계별 MariaDB 설치 부터 Tool로
     - 근데 docker에서 두개파일 volume지정을 어떻게 하는거지??
 
 - my.cnf파일 추가
-  - 초기 characterset이 latin1로 되어있으며 utf8변경 해준다.  
+  - 초기 characterset이 latin1로 되어있으며 utf8mb4(4바이트지원format)변경 해준다.  
 
   ```
-  "["client"]"
+  [client]
   default-character-set = utf8mb4
-
-  "["mysql"]"
+  [mysql]
   default-character-set = utf8mb4
-
-  "["mysqld"]"
+  [mysqldump]
+  default-character-set = utf8mb4
+  [mysqld]
   #
-  character-set-client-handshake = FALSE
-  #
-  character-set-server = utf8mb4
-  #
-  collation-server = utf8mb4_unicode_ci
+  default-time-zone = '+9:00'
+  character_set-client-handshake  = FALSE
+  character-set-server            = utf8mb4
+  collation_server                = utf8mb4_general_ci
+  init_connect                    = set collation_connection=utf8mb4_general_ci
+  init_connect                    = set names utf8mb4
  
   ```
 
@@ -86,16 +87,8 @@ Docker가 설치 되었다면 아래 0~7 단계별 MariaDB 설치 부터 Tool로
     flush privileges;
     ```
 
-6. 시간설정
-  - MariaDB를 빠져나와 linux에서 명령어 수행  
-    ```
-    timedatectl set-timezone 'Asia/Seoul'  
-    ```
-  - MariaDB 재기동(host에서 수행하세요.)
-    ```
-    docker restart {container id 또는 container name}
-    ```
-  - 다시 MariaDB 접속 후 아래 명령어로 현재시간을 확인한다.
+6. 시간확인
+  - MariaDB 접속 후 아래 명령어로 현재시간을 확인한다.
     ```
     select now();
     ```

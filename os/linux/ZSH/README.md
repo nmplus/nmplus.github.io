@@ -1,7 +1,7 @@
 ---
-sort: 4
+sort: 3
 ---
 
-# 설치
+# ZSH
 
 {% include list.liquid all=true %}
