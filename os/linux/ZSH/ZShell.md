@@ -21,17 +21,17 @@ chsh -s /usr/zsh
 ```
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 ```
-- zsh 테마변경
+  - zsh테마변경
   - /home/본인계정 위치로 이동시 숨김파일으로 .zshrc을 vi로 실행  
   - ZSH_THEME부분을 수정하면됨 ohmyzsh설치시 테마가 설치된다.  
   - 테마경로 /home/본인계정/.oh-my-zsh/themes  
-  ```
+  ```  
   vi .zshrc
   ...중략
-  # Set name of the theme to load --- if set to "random", it will
-  # load a random theme each time oh-my-zsh is loaded, in which case,
-  # to know which specific one was loaded, run: echo $RANDOM_THEME
-  # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+  \# Set name of the theme to load --- if set to "random", it will
+  \# load a random theme each time oh-my-zsh is loaded, in which case,
+  \# to know which specific one was loaded, run: echo $RANDOM_THEME
+  \# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
   ZSH_THEME="cloud"  #구름테마로 변경
   ```
 
