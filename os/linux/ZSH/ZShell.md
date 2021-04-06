@@ -27,9 +27,7 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
   - 테마경로 /home/본인계정/.oh-my-zsh/themes  
   ```
   vi .zshrc
-
   ...중략
-
   # Set name of the theme to load --- if set to "random", it will
   # load a random theme each time oh-my-zsh is loaded, in which case,
   # to know which specific one was loaded, run: echo $RANDOM_THEME
