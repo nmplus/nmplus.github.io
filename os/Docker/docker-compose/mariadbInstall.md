@@ -7,7 +7,7 @@ Docker와 docker-compose가 설치 되었다면 아래 0~7 단계별 MariaDB 설
 - 버전을 작성하지 않으면 latest 버전을 받게됩니다.
 - 이미 image를 내려받았거나 docker run명령어시 image를 받을수도 있다.
   ```
-  docker pull mariadb  
+  docker pull mariadb
   ```
   ```
   docker pull mariadb:10.5.9
@@ -63,9 +63,21 @@ services:
       - /home/ing/docker/mariadb/config:/etc/mysql/conf.d
     environment:
       MYSQL_ROOT_PASSWORD: test
+      TZ: Asia/Seoul
 ```
 
-4. 실행, 상태확인 등
+4. 코드 검증
+- docker-compose.yml 작성후 정상적으로 코딩되었는지 검증을 해본다.
+```
+docker-compose config
+```
+- 에러발생시 아래와같이 메세지 출력해준다.
+```
+ERROR: The Compose file './docker-compose.yml' is invalid because:
+Unsupported config option for services.tomcat: 'port' (did you mean 'ports'?)
+```
+
+5. 실행, 상태확인 등
 - 실행은 docker-compose.yml 경로또는 그 하위에서 실행가능
 ```
 docker-compose up -d
