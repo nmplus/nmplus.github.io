@@ -70,7 +70,9 @@ services:
     ```
 
 4. 콘솔 접속
-    - http://localhost:8888/auth -> Administration Console 클릭 및 로그인
+    - http://localhost:8888/auth -> Administration Console 클릭 및 로그인  
 
+![auth](https://user-images.githubusercontent.com/81209685/116022738-bd328d00-a685-11eb-9cda-ce86cc575a90.PNG)  
 
+![console](https://user-images.githubusercontent.com/81209685/116022608-75ac0100-a685-11eb-8409-90ad4db742d2.PNG)
 
