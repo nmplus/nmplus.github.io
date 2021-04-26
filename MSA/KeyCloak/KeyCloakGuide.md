@@ -70,7 +70,10 @@ services:
     ```
 
 4. 콘솔 접속
-    - http://localhost:8888/auth -> Administration Console 클릭 및 로그인  
+    - http://192.168.1.23:8888/auth -> Administration Console 클릭 및 로그인  
+    - admin / 비번은 회사내부정보
+    
+
 
 ![auth](https://user-images.githubusercontent.com/81209685/116022738-bd328d00-a685-11eb-9cda-ce86cc575a90.PNG)  
 
