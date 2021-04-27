@@ -55,7 +55,8 @@
         refres_token:<REFRESH_TOKEN>
     ```
 
-7. spring boot 샘플가이드
+7. spring boot 샘플가이드(예정)
+
 
 
 #### 참고
