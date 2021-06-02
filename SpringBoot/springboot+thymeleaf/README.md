@@ -1,8 +1,8 @@
 ---
-sort: 1
+sort: 99
 ---
 
-# Springboot + Thymeleaf
+# 개발 참고자료
 
 {% include list.liquid all=true %}
 
