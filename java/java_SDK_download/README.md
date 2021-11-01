@@ -1,7 +1,7 @@
 ---
-sort: 2
+sort: 1
 ---
 
-# Java SDK download
+# Java 설치
 
 {% include list.liquid all=true %}

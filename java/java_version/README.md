@@ -1,7 +1,7 @@
 ---
-sort: 2
+sort: 3
 ---
 
-# HttpServletRequest
+# Java 버전별 차이점
 
 {% include list.liquid all=true %}
