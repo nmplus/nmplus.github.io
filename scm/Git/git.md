@@ -1,5 +1,5 @@
 
-# Git
+## Git
 
 ### 먼저 할 일
 [GitHub 가입](https://github.com/)  
