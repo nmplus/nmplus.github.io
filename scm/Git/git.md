@@ -13,15 +13,18 @@
 git config --global user.name "{사용자이름}"
 git config --global user.email {이메일주소}
 ```
-깃 설정정보 조회  
+깃 설정정보 조회 
+``` 
 git config --list
+```
 
 깃 저장소로 사용할 곳에서 git init 으로 저장소 생성
 
-계정 정보 삭제  
+계정 정보 삭제하는 방법
+``` 
 git config --unset --global user.name  
 git config --unset --global user.email  
-
+```
 자격 증명 관리자 -> Windows 자격 증명 -> git 관련 제거
 
 ### Repository 초대 방법
@@ -46,11 +49,12 @@ fatal: remote error:
     Visit https://supprot.github.com/ for help
 ```
 해결방법  
-git clone https://{깃허브아이디}:{토큰}@github.com/{원격저장소주인아이디}/{원격저장소명}.git  
-예시)  
+git clone https://{사용자이름}:{토큰}@github.com/{원격저장소주인이름}/{원격저장소}  
+**ex)**  
 kim1207 / eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9 (깃 정보)  
 hong0510 / springBoot (원격저장소 정보)  
 git clone https://kim1207:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9@github.com/hong0510/springBoot.git
+
 
 #### GitHub Token 생성 방법
 깃허브 계정 -> Settings -> Developer settings -> Personal access tokens -> Generate new token  
